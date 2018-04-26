@@ -54,14 +54,14 @@ def valortotal_stock(stock):
 # interacion con usuario
 
 print('Bienvenido a Naturitas,')
-print('puede vender patatas tecleando "venderpatatas"')
-print('puede ver el valor de las patatas tecleando "valorpatatas"')
-print('puede vender manzanas tecleando "vendermanzanas"')
-print('puede ver el valor de las manzanas tecleando "valormanzanas"')
-print('puede vender peras tecleando "venderperas"')
-print('puede ver el valor de las peras tecleando "valorperas"')
-print('puede ver el stock total en el almacen tecleando "stocktotal"')
-print('puede ver el valor del stock total en el almacen tecleando "valortotal"')
+print('Teclee  "venderpatatas"  para vender patatas  ')
+print('Teclee  "valorpatatas"  para ver el valor de las patatas  ')
+print('Teclee  "vendermanzanas"  para vender manzanas  ')
+print('Teclee  "valormanzanas"  para ver el valor de las manzanas  ')
+print('Teclee  "venderperas"  para vender peras ')
+print('Teclee  "valorperas"  para ver el valor de las peras ')
+print('Teclee  "stocktotal"  para ver el stock total en el almacen ')
+print('Teclee  "valortotal"  para ver el valor del stock total en el almacen ')
 response=" "
 while response !="":
     response = raw_input("Que desea hacer ")
