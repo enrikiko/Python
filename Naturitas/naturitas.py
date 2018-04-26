@@ -39,8 +39,8 @@ def check_stock(product):
         product.quantity = product.quantity + 5
         print('El stock ha sido incrementado')
 def valor_product(product):
-    print('El valor de ',product.title,' es de:')
-    print(product.price,'euros')
+    print('El valor de ',product.title,' es de:',product.price,'euros')
+
 def stocktotal_stock(stock):
     print('El stock actual es el siguente:')
     for element in range(len(stock.total)):
