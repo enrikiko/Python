@@ -12,7 +12,7 @@
 
 import random
 
-long=int(random.randint(8,16))
+long=int(random.randint(18,36))
 
 def typeP():
     type = int(random.randint(0,3))

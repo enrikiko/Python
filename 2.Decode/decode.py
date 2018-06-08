@@ -1,8 +1,12 @@
 # Functions:
+import requests
+from bs4 import BeautifulSoup
 def getHTML(url):
-    import requests
-    from bs4 import BeautifulSoup
-    req=requests.get(url)
+
+    hearder = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/5\
+    37.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"}
+    req=requests.get(url,hearder)
     html=BeautifulSoup(req.text, "html.parser")
     print(html)
     return html
@@ -18,7 +22,7 @@ print(response)
 while response !="":
     response = raw_input("\n Just press Enter to see https://www.milanuncios.com/coches-de-segunda-mano/ by default")
     if response == "":
-        html = getHTML("https://www.milanuncios.com/coches-de-segunda-mano/")
+        html = getHTML("https://motos.coches.net/fichas_tecnicas/kawasaki/j_125/2015-6610.htm")
     else:
         html = getHTML(response)
 print('Do you want to safe the code in a file.txt?')
