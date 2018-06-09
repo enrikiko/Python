@@ -18,7 +18,7 @@ class User:
         age_in_year = age_in_day / 365
         return int(age_in_year)
     def introduce(self):
-        text = "Hello, I am {firstName}, I am {age} years old".format(firstName = self.name, age = self.age())
+        text = "Hello, I am {name}, I am {age} years old".format(name = self.name, age = self.age())
         return text
 Enrique = User("Enrique Ramos", "19911129")
 
