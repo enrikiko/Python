@@ -1,4 +1,4 @@
-#Sudoku shutting
+# Sudoku shutting
 
 And algorithm that resolve Sudokus
 
