@@ -1,0 +1,9 @@
+DEBUG 2018-06-11 02:00:19,309 - We are in love
+INFO 2018-06-11 02:00:19,309 - I have been cheated!
+WARNING 2018-06-11 02:00:19,309 - You will suffer
+ERROR 2018-06-11 02:00:19,309 - I shouldn't done it
+CRITICAL 2018-06-11 02:00:19,309 - Well, is to late
+INFO 2018-06-11 02:00:19,309 - quadratic_formula(1, 0, -4)
+DEBUG 2018-06-11 02:00:19,310 - #compute the discriminant
+DEBUG 2018-06-11 02:00:19,310 - #compute the two root
+DEBUG 2018-06-11 02:00:19,310 - #Return the roots

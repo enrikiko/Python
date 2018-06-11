@@ -1,0 +1,1 @@
+The Logging module in Python makes it easy to track events in your code.  Log files are extremely valuable when you want to analyze usage or track down problems in your code.  Today we cover the essentials of the Python logging system, and then give a demonstration of how to use logging in your code.
