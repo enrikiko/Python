@@ -9,7 +9,7 @@ print(os.environ.get('Desktop'))
 # os.makedirs('newFolder')
 # os.mknod("newFolder/test")
 
-# for dirpath, dirnames, filenames in os.walk('/Users/enriqueramosmunoz/Projects/Python/Python'):
-#     print('Current path: ', dirpath)
-#     print('Directories: ', dirnames)
-#     print('Files: ', filenames)
+for dirpath, dirnames, filenames in os.walk('/Users/enriqueramosmunoz/Projects/Python/Python'):
+    print('Current path: ', dirpath)
+    print('Directories: ', dirnames)
+    print('Files: ', filenames)
