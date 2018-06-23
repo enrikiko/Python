@@ -1,0 +1,38 @@
+# usr/local/mysql/bin/mysql -u root -p
+# passwd:rootroot
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0,12 sec)
+
+mysql> CREATE DATABASE pythondb
+Query OK, 1 row affected (0,04 sec)
+
+mysql> USE pythondb;
+Database changed
+
+mysql> CREATE TABLE users(
+    -> firstName VARCHAR(50) NOT NULL,
+    -> lastName VARCHAR(50) NOT NULL,
+    -> password VARCHAR(16) NOT NULL,
+    -> email VARCHAR(50) NOT NULL,
+    -> creationTime VARCHAR(50) NOT NULL);
+Query OK, 0 rows affected (0,08 sec)
+
+mysql> INSERT INTO users VALUE("Enrique","Ramos","123456","enrique@ramos.com","someday");
+Query OK, 1 row affected (0,07 sec)
+
+mysql> SELECT * FROM users;
++-----------+----------+----------+-------------------+--------------+
+| firstName | lastName | password | email             | creationTime |
++-----------+----------+----------+-------------------+--------------+
+| Enrique   | Ramos    | 123456   | enrique@ramos.com | someday      |
++-----------+----------+----------+-------------------+--------------+
+1 row in set (0,00 sec)
