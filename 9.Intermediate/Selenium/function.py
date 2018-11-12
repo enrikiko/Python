@@ -7,14 +7,12 @@ from selenium.common.exceptions import NoSuchElementException
 browser = webdriver.Firefox(executable_path="./geckodriver")
 
 def checkExistsByXpath(path):
+    print(path)
     try:
-        elem=browser.find_elements_by_xpath(path)
+        elem=browser.find_element_by_xpath(path)
     except NoSuchElementException:
         return False
-    if len(elem) == 0:
-        return False
-    else:
-        return elem
+    return elem
 
 def findElement(path):
     item = False
@@ -24,9 +22,9 @@ def findElement(path):
         item=checkExistsByXpath(path)
         count = count - 1
     if count <= 0:
-        print("xpath not found!")
+        print("Element not found!")
     else:
-        print("xpath found!")
+        print("Element found!")
         return item
 
 def checkExistsById(path):

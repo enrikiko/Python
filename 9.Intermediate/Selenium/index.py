@@ -1,5 +1,5 @@
 if __name__ == '__main__':
-    print("Web-auto-controlled. \n \n \n")
+    print("Web-auto-controlled. \n")
 
 print("Setting the environment...")
 
@@ -24,9 +24,15 @@ input.send_keys(Keys.ENTER)
 print("Logged In")
 # job_button = browser.find_element_by_id('jobs-tab-icon')
 # job_button.click()
-sleep(1)
+sleep(5)
 messages=findElementById('messaging-tab-icon')
 pulse(messages)
+
+sleep(5)
+box=findElement('div[@role="textbox"]')
+if box != None:
+    box.send("Hello")
+    box.send_keys(Keys.ENTER)
 #
 # #Go to jobs
 # search_jobs = browser.find_elements_by_xpath("//input[@placeholder='Search jobs']")
