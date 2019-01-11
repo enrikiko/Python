@@ -4,6 +4,7 @@
 
 sudo apt install python-pip
 sudo pip install selenium
+python index.py
 
 
 > [Docker Tutorial](https://www.youtube.com/watch?v=tBfOHso1-6o&t=1s)
