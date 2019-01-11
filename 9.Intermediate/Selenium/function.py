@@ -4,7 +4,16 @@ from random import randint
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
-browser = webdriver.Firefox(executable_path="./geckodriver")
+browser = webdriver.Chrome('./chromedriver/chromedriver') #execute by shell
+
+def stop():
+    certain = None
+    while certain is not True:
+        certain = raw_input("\nContiue? Yes/No\n")
+        if (certain == "Yes") or (certain == "y") or (certain == "Y"):
+            certain = True
+        else:
+            certain = None
 
 def checkExistsByXpath(path):
     print(path)
