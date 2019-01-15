@@ -1,7 +1,6 @@
 if __name__ == '__main__':
     print("Web-auto-controlled.")
 
-
 #import getpass
 import sys
 jobTittle = sys.argv[1]
@@ -59,9 +58,11 @@ apply_featuresl = browser.find_elements_by_xpath("//button[@data-control-name='f
 apply_featuresl[1].click()
 sleep(2)
 
+
 while certain:
     applyLoop()
     page, certain = nextPage(page, certain)
 
+    
 browser.quit();
 print("Script end.")

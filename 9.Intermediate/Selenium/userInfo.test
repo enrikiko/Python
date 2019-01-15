@@ -2,3 +2,4 @@ email="XXX@gmail.com"
 word="XXX" #Password
 jobTittle=["Busines procces","business process improvement", "Customer experience", "Customer service", "Online marketing", ]
 city="WorldWide"
+blackList=["java","javascript","python","docker","c++",".net"] #Any application that contain any of this word are exclude
