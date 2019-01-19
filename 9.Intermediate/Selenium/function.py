@@ -14,6 +14,8 @@ def stop():
             certain = True
         else:
             certain = None
+            browser.quit();
+            print("Script end.")
 
 def checkExistsByXpath(path):
     print(path)
@@ -61,3 +63,14 @@ def pulse(elem):
         elem.click()
     else:
         print("Element null")
+
+
+def increaseNumberCV():
+    f = open("numberOfCvSend.txt", "r")
+    count=f.read()
+    print count
+    f.close()
+    f = open("numberOfCvSend.txt", "w")
+    count=int(count)+1
+    f.write(str(count))
+    f.close()

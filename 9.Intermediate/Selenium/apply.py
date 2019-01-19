@@ -63,6 +63,6 @@ while certain:
     applyLoop()
     page, certain = nextPage(page, certain)
 
-    
+
 browser.quit();
 print("Script end.")

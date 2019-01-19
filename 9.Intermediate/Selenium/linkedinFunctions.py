@@ -4,29 +4,35 @@ def apply(counter):
     jobs=browser.find_elements_by_class_name("job-card-search--clickable")
     jobs_number = len(jobs)
     #print "There is {0} jobs".format(jobs_number)
+    sleep(1)
     for n in range(counter, jobs_number):
         try:
-            #print "n:{0}".format(n+1)
+            print "n:{0}".format(n+1)
             #print n
             try:
                 jobs[n].click()
             except NoSuchElementException:
                 pass
-            sleep(1)
+            sleep(1.5)
             counter = counter+1
             easyButton=browser.find_element_by_class_name("jobs-apply-button__text")
             text=easyButton.get_attribute('innerHTML')
+            tittle=browser.find_element_by_class_name("jobs-details-top-card__job-title")
+            tittleText=tittle.get_attribute('innerHTML')
+            print tittleText
             if checkBlackList():
                 if "1-Click Apply" in text:
                     try:
                         easyButton.click()
-                        sleep(1)
+                        print "--------Applyed--------"
+                        increaseNumberCV()
+                        sleep(2.5)
                         deleteBanner()
-                        sleep(2)
+                        sleep(0.2)
                     except NoSuchElementException:
                         print "Some error clicking the button"
             else:
-                print "The application contain some forbiden word"
+                pass
         except NoSuchElementException:
             pass
         return counter
@@ -64,7 +70,6 @@ def nextPage(page, certain):
 
 
 def deleteBanner():
-    sleep(1)
     exitButton = browser.find_elements_by_xpath('//artdeco-modal//button//li-icon')
     try:
         exitButton[0].click()
@@ -75,8 +80,14 @@ def deleteBanner():
 def checkBlackList():
     paragraphList=browser.find_element_by_xpath("//div[@id='job-details']//span")
     text=paragraphList.get_attribute('innerHTML')
+    try:
+        text=text.lower()
+    except Exception as e:
+        print "The text can not be lowercase"
     for elem in blackList:
+        #print "Looking for {0}".format(elem)
         if elem in text:
-            print "{0} is in the description".format(elem)
+            print "{0}".format(elem)
             return False
+    #sleep(10000)
     return True
