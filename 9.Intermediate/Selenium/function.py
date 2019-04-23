@@ -6,9 +6,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 
-if platform.system() = 'Darwin':
+if platform.system() == 'Darwin':
     browser = webdriver.Chrome('./chromedriverMac/chromedriver')
-elif platform.system() = 'Linux':
+elif platform.system() == 'Linux':
     browser = webdriver.Chrome('./chromedriverUbuntu/chromedriver')
 
 def stop():
