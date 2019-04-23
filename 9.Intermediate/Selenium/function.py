@@ -1,10 +1,15 @@
+import platform
 from time import sleep
 from selenium import webdriver
 from random import randint
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
-browser = webdriver.Chrome('./chromedriver/chromedriver') #execute by shell
+
+if platform.system() = 'Darwin':
+    browser = webdriver.Chrome('./chromedriverMac/chromedriver')
+elif platform.system() = 'Linux':
+    browser = webdriver.Chrome('./chromedriverUbuntu/chromedriver')
 
 def stop():
     certain = None
