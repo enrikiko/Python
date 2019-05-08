@@ -73,15 +73,17 @@ classifier.fit(X_train, y_train, batch_size = 10, epochs = 100)
 y_pred = classifier.predict(X_test)
 y_pred = (y_pred > 0.5)
 
+
+#Singl predictions
+newPredictions=classifier.predict(np.array([[0,0,600,1,40,3,6000,2,1,1,50000]]))
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
 
-____________________________________________
-| 1532 | 63 |
--------------
-| 207 | 198 |
--------------
-( 1532 + 198 ) / 2000 
-% aciertos
-
+# ____________________________________________
+# | 1532 | 63 |
+# -------------
+# | 207 | 198 |
+# -------------
+# ( 1532 + 198 ) / 2000
+# % aciertos
