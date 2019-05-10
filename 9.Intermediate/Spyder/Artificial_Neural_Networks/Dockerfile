@@ -17,28 +17,21 @@
 # RUN curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
 # RUN sha256sum Anaconda3-2019.03-Linux-x86_64.sh
 
-FROM enriqueramosmunoz/rolling:cigarettes
+FROM enriqueramosmunoz/rolling:papers
 RUN mkdir /tmp/spyder
 WORKDIR /tmp/spyder
 
 
 RUN apt-get -y install man
-# RUN apt update
-# RUN apt install -y python3-pip
-RUN pip3 install awscli --upgrade --user
-# #Http request
+# RUN pip3 install awscli --upgrade --user
 RUN apt install -y curl
 RUN apt install wget
-# #Ansible
-# RUN apt-get install -y software-properties-common
-# RUN apt-add-repository --yes --update ppa:ansible/ansible
-# RUN apt-get -y install ansible
-#
+
 RUN apt install -y git
-#
-# WORKDIR /tmp/enrique
 # RUN git clone https://github.com/enrikiko/docker/
-# RUN git clone https://github.com/enrikiko/Python/
+RUN git clone https://github.com/enrikiko/Python/
+WORKDIR /tmp/spyder/Python/9.Intermediate/Spyder/Artificial_Neural_Networks/
+
 #
 # RUN alias vault=ansible-vault
 # RUN alias py=python
