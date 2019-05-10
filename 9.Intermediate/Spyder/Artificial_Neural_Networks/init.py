@@ -24,29 +24,11 @@ y = dataset.iloc[:, 13].values
 # Encoding categorical data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 labelencoder_x_1 = LabelEncoder()
+
 x[:, 1] = labelencoder_x_1.fit_transform(x[:, 1]) #convert Srtring to Number
-
-# >>> x
-# array([[619, 'France', 'Female', ..., 1, 1, 101348.88],
-#        [608, 'Spain', 'Female', ..., 0, 1, 112542.58],
-#        [502, 'France', 'Female', ..., 1, 0, 113931.57],
-#        ...,
-#        [709, 'France', 'Female', ..., 0, 1, 42085.58],
-#        [772, 'Germany', 'Male', ..., 1, 0, 92888.52],
-#        [792, 'France', 'Female', ..., 1, 0, 38190.78]], dtype=object)
-# >>> x[:, 1] = labelencoder_x_1.fit_transform(x[:, 1])
-# >>> x
-# array([[619, 0, 'Female', ..., 1, 1, 101348.88],
-#        [608, 2, 'Female', ..., 0, 1, 112542.58],
-#        [502, 0, 'Female', ..., 1, 0, 113931.57],
-#        ...,
-#        [709, 0, 'Female', ..., 0, 1, 42085.58],
-#        [772, 1, 'Male', ..., 1, 0, 92888.52],
-#        [792, 0, 'Female', ..., 1, 0, 38190.78]], dtype=object)
-
-
 labelencoder_x_2 = LabelEncoder()
 x[:, 2] = labelencoder_x_2.fit_transform(x[:, 2])
+
 onehotencoder = OneHotEncoder(categorical_features = [1])
 x = onehotencoder.fit_transform(x).toarray()
 x = x[:, 1:]
@@ -96,6 +78,7 @@ y_pred = (y_pred > 0.5)
 
 #Singl predictions
 newPredictions=classifier.predict(np.array([[0,0,600,1,40,3,6000,2,1,1,50000]]))
+print(newPredictions)
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)

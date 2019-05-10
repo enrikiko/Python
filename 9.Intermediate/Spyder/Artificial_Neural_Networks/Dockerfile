@@ -16,24 +16,26 @@
 # WORKDIR /tmp/anaconda
 # RUN curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
 # RUN sha256sum Anaconda3-2019.03-Linux-x86_64.sh
+#
+# FROM enriqueramosmunoz/rolling:papers
+# RUN mkdir /tmp/spyder
+# WORKDIR /tmp/spyder
+#
+#
+# RUN apt-get -y install man
+# # RUN pip3 install awscli --upgrade --user
+# RUN apt install -y curl
+# RUN apt install wget
+#
+# RUN apt install -y git
+# # RUN git clone https://github.com/enrikiko/docker/
+# RUN git clone https://github.com/enrikiko/Python/
+# WORKDIR /tmp/spyder/Python/9.Intermediate/Spyder/Artificial_Neural_Networks/
 
-FROM enriqueramosmunoz/rolling:papers
-RUN mkdir /tmp/spyder
-WORKDIR /tmp/spyder
+FROM enriqueramosmunoz/rolling:cigarettes
+#RUN source ~/.bashrc
 
-
-RUN apt-get -y install man
-# RUN pip3 install awscli --upgrade --user
-RUN apt install -y curl
-RUN apt install wget
-
-RUN apt install -y git
-# RUN git clone https://github.com/enrikiko/docker/
-RUN git clone https://github.com/enrikiko/Python/
-WORKDIR /tmp/spyder/Python/9.Intermediate/Spyder/Artificial_Neural_Networks/
-
-RUN source ~/.bashrc
-ENTRYPOINT [ 'python']
+#ENTRYPOINT [ 'python']
 
 
 
