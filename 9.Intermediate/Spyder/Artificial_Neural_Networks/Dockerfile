@@ -32,6 +32,12 @@ RUN apt install -y git
 RUN git clone https://github.com/enrikiko/Python/
 WORKDIR /tmp/spyder/Python/9.Intermediate/Spyder/Artificial_Neural_Networks/
 
+RUN source ~/.bashrc
+ENTRYPOINT [ 'python']
+
+
+
+
 #
 # RUN alias vault=ansible-vault
 # RUN alias py=python

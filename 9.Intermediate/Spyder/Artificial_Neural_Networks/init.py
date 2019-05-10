@@ -18,18 +18,38 @@ import pandas as pd
 
 # Importing the dataset
 dataset = pd.read_csv('Churn_Modelling.csv')
-X = dataset.iloc[:, 3:13].values
+x = dataset.iloc[:, 3:13].values
 y = dataset.iloc[:, 13].values
 
 # Encoding categorical data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-labelencoder_X_1 = LabelEncoder()
-X[:, 1] = labelencoder_X_1.fit_transform(X[:, 1])
-labelencoder_X_2 = LabelEncoder()
-X[:, 2] = labelencoder_X_2.fit_transform(X[:, 2])
+labelencoder_x_1 = LabelEncoder()
+x[:, 1] = labelencoder_x_1.fit_transform(x[:, 1]) #convert Srtring to Number
+
+# >>> x
+# array([[619, 'France', 'Female', ..., 1, 1, 101348.88],
+#        [608, 'Spain', 'Female', ..., 0, 1, 112542.58],
+#        [502, 'France', 'Female', ..., 1, 0, 113931.57],
+#        ...,
+#        [709, 'France', 'Female', ..., 0, 1, 42085.58],
+#        [772, 'Germany', 'Male', ..., 1, 0, 92888.52],
+#        [792, 'France', 'Female', ..., 1, 0, 38190.78]], dtype=object)
+# >>> x[:, 1] = labelencoder_x_1.fit_transform(x[:, 1])
+# >>> x
+# array([[619, 0, 'Female', ..., 1, 1, 101348.88],
+#        [608, 2, 'Female', ..., 0, 1, 112542.58],
+#        [502, 0, 'Female', ..., 1, 0, 113931.57],
+#        ...,
+#        [709, 0, 'Female', ..., 0, 1, 42085.58],
+#        [772, 1, 'Male', ..., 1, 0, 92888.52],
+#        [792, 0, 'Female', ..., 1, 0, 38190.78]], dtype=object)
+
+
+labelencoder_x_2 = LabelEncoder()
+x[:, 2] = labelencoder_x_2.fit_transform(x[:, 2])
 onehotencoder = OneHotEncoder(categorical_features = [1])
-X = onehotencoder.fit_transform(X).toarray()
-X = X[:, 1:]
+x = onehotencoder.fit_transform(x).toarray()
+x = x[:, 1:]
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
