@@ -35,7 +35,7 @@
 FROM enriqueramosmunoz/rolling:cigarettes
 #RUN source ~/.bashrc
 
-ENTRYPOINT [ 'python']
+ENTRYPOINT [ 'python', 'init.sh']
 
 
 
