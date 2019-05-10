@@ -12,24 +12,29 @@
 #
 # # #install anaconda
 # RUN mkdir /tmp/anaconda
+# RUN mkdir /tmp/spyder
 # WORKDIR /tmp/anaconda
 # RUN curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
 # RUN sha256sum Anaconda3-2019.03-Linux-x86_64.sh
 
-FROM enriqueramosmunoz/rolling:papers
-# RUN apt-get -y install man
+FROM enriqueramosmunoz/rolling:cigarettes
+RUN mkdir /tmp/spyder
+WORKDIR /tmp/spyder
+
+
+RUN apt-get -y install man
 # RUN apt update
 # RUN apt install -y python3-pip
-# RUN pip3 install awscli --upgrade --user
+RUN pip3 install awscli --upgrade --user
 # #Http request
-# RUN apt install -y curl
-# RUN apt install wget
+RUN apt install -y curl
+RUN apt install wget
 # #Ansible
 # RUN apt-get install -y software-properties-common
 # RUN apt-add-repository --yes --update ppa:ansible/ansible
 # RUN apt-get -y install ansible
 #
-# RUN apt install -y git
+RUN apt install -y git
 #
 # WORKDIR /tmp/enrique
 # RUN git clone https://github.com/enrikiko/docker/
