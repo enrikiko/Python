@@ -34,8 +34,8 @@
 
 FROM enriqueramosmunoz/rolling:cigarettes
 #RUN source ~/.bashrc
-
-ENTRYPOINT [ 'python', 'init.sh']
+RUN python init.py
+#ENTRYPOINT [ 'python', 'init.py']
 
 
 
