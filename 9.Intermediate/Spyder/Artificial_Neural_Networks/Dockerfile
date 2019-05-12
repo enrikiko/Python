@@ -31,11 +31,10 @@
 # # RUN git clone https://github.com/enrikiko/docker/
 # RUN git clone https://github.com/enrikiko/Python/
 # WORKDIR /tmp/spyder/Python/9.Intermediate/Spyder/Artificial_Neural_Networks/
-
+# RUN source ~/.bashrc
+# RUN conda install keras
 FROM enriqueramosmunoz/rolling:cigarettes
-#RUN source ~/.bashrc
-RUN python init.py
-#ENTRYPOINT [ 'python', 'init.py']
+CMD sh init.sh
 
 
 
