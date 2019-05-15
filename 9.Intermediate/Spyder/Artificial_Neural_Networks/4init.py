@@ -1,6 +1,6 @@
 def save(info, file):
     with open(file, "a") as f:
-        f.write("info\n")
+        f.write(info+"\n")
 
 import numpy as np
 import matplotlib.pyplot as plt
