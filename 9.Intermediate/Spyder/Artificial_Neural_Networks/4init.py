@@ -64,8 +64,8 @@ best_parameters = grid_search.best_params_
 best_accuracy = grid_search.best_score_
 print(best_parameters)
 print(best_accuracy)
-save(best_parameters, info)
-save(best_accuracy, info)
+save(best_parameters, "info")
+save(best_accuracy, "info")
 #accurancies = cross_val_score(estimator = classifier, X = x_train, y = y_train, cv = 10, n_jobs = -1 )
 #mean = accurancies.mean()
 #variance = accurancies.std()
