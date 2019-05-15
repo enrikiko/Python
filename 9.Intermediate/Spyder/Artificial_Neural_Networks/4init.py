@@ -5,7 +5,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-sendHttp("Start":time.time())
+startDate={ "Start" : time.time(),
+    "Version" : "4init.py" }
+
+sendHttp(startDate)
 
 # Importing the dataset
 dataset = pd. read_csv('Churn_Modelling.csv')
@@ -57,6 +60,8 @@ parameters = {
 'neuronP' : [6, 7]
 }
 
+sendHttp(parameters)
+
 grid_search = GridSearchCV(estimator = classifier,
 param_grid = parameters,
 scoring = 'accuracy',
@@ -66,6 +71,9 @@ best_parameters = grid_search.best_params_
 best_accuracy = grid_search.best_score_
 print(best_parameters)
 print(best_accuracy)
+final={ "best_parameters" : best_parameters,
+        "best_accuracy" : best_accuracy}
+sendHttp(final)
 save(str(parameters))
 save(str(best_parameters))
 save(str(best_accuracy))
