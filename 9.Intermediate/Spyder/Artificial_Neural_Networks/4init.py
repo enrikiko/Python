@@ -1,4 +1,8 @@
-def save(info, file):
+import time
+
+def save(info):
+    file=str(time.time())
+    file='tmp/'+file
     with open(file, "a") as f:
         f.write(info+"\n")
 
@@ -42,17 +46,18 @@ from keras.layers import Dense
 from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.model_selection import GridSearchCV
 
-def build_classifier(neuronN):
+def build_classifier(neuronN, neuronP):
     classifier = Sequential()
-    classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu', input_dim = 11))
-    classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))
+    classifier.add(Dense(units = neuronN, kernel_initializer = 'uniform', activation = 'relu', input_dim = 11))
+    classifier.add(Dense(units = neuronP, kernel_initializer = 'uniform', activation = 'relu'))
     classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'sigmoid'))
     classifier.compile(optimizer = 'rmsprop', loss = 'binary_crossentropy', metrics = ['accuracy'])
     return classifier
 
-classifier = KerasClassifier(build_fn = build_classifier, batch_size = 10, epochs = 50)
+classifier = KerasClassifier(build_fn = build_classifier, batch_size = 10, epochs = 300)
 parameters = {
-'neuronN' : [6, 7]
+'neuronN' : [6, 7],
+'neuronP' : [6, 7]
 }
 
 grid_search = GridSearchCV(estimator = classifier,
@@ -64,8 +69,9 @@ best_parameters = grid_search.best_params_
 best_accuracy = grid_search.best_score_
 print(best_parameters)
 print(best_accuracy)
-save(best_parameters, "info")
-save(best_accuracy, "info")
+save(str(parameters))
+save(str(best_parameters))
+save(str(best_accuracy))
 #accurancies = cross_val_score(estimator = classifier, X = x_train, y = y_train, cv = 10, n_jobs = -1 )
 #mean = accurancies.mean()
 #variance = accurancies.std()
