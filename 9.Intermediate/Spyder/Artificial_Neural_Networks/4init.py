@@ -72,7 +72,8 @@ best_accuracy = grid_search.best_score_
 print(best_parameters)
 print(best_accuracy)
 final={ "best_parameters" : best_parameters,
-        "best_accuracy" : best_accuracy}
+        "best_accuracy" : best_accuracy,
+        "Finish" : time.time()       }
 sendHttp(final)
 save(str(parameters))
 save(str(best_parameters))
