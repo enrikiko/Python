@@ -1,14 +1,11 @@
+from joke import save
+from request import sendHttp
 import time
-
-def save(info):
-    file=str(time.time())
-    file='tmp/'+file
-    with open(file, "a") as f:
-        f.write(info+"\n")
-
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+
+sendHttp("Start":time.time())
 
 # Importing the dataset
 dataset = pd. read_csv('Churn_Modelling.csv')
