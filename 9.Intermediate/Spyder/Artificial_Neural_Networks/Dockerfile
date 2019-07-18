@@ -34,7 +34,8 @@
 # RUN source ~/.bashrc
 # RUN conda install keras
 FROM enriqueramosmunoz/rolling:cigarettes
-CMD sh init.sh
+COPY init.sh init.sh
+#ENTRYPOINT [ "sh", "init.sh" ]
 
 
 

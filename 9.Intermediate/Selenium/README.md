@@ -2,8 +2,9 @@
 
 ## Install environment commands
 
-sudo apt install python-pip
-sudo pip install selenium
+apt install python-pip
+pip install selenium
+apt install ansible -y
 sudo chmod 777 chromedriverUbuntu/chromedriver
 sudo chmod 777 chromedriverMac/chromedriver
 if S.O. Ubuntu:
@@ -12,6 +13,8 @@ if S.O. Ubuntu:
   sudo apt-get update
   sudo apt-get install google-chrome-stable
 
+fill credencial in userInfo.py
+Install Chromium
 python index.py
 
 
