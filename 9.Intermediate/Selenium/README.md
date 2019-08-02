@@ -12,7 +12,7 @@ if S.O. Ubuntu:
   echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt sources.list.d/google-chrome.list
   sudo apt-get update
   sudo apt-get install google-chrome-stable
-
+  apt install default-jre 
 fill credencial in userInfo.py
 Install Chromium
 python index.py
