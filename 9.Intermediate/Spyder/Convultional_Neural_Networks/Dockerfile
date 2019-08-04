@@ -19,4 +19,4 @@ WORKDIR /src/
 RUN curl https://sds-platform-private.s3-us-east-2.amazonaws.com/uploads/P16-Convolutional-Neural-Networks.zip --output zip.zip
 RUN unzip zip.unzip
 RUN cp -r Convolutional_Neural_Networks/dataset ./
-ENTRYPOINT ["python", "cnn.py"]
+ENTRYPOINT ["sh", "init.sh"]
