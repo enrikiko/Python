@@ -10,9 +10,13 @@ RUN pip install --upgrade keras
 RUN pip install Theano
 RUN apt-get install tree
 RUN apt-get install locate
+RUN apt-get install unzip -y
 RUN pip install pillow
 RUN updatedb
-RUN mkdir /Convolutional_Neural_Networks/
-COPY ./Convolutional_Neural_Networks/ /Convolutional_Neural_Networks/
-WORKDIR /Convolutional_Neural_Networks/
+RUN mkdir /src/
+COPY ./src/ /src/
+WORKDIR /src/
+RUN curl https://sds-platform-private.s3-us-east-2.amazonaws.com/uploads/P16-Convolutional-Neural-Networks.zip --output zip.zip
+RUN unzip zip.unzip
+RUN cp -r Convolutional_Neural_Networks/dataset ./
 ENTRYPOINT ["python", "cnn.py"]
