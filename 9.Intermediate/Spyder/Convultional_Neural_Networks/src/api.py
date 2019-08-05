@@ -1,10 +1,10 @@
-from flask_api import FlaskAPI
+from flask import flask
 
-app = FlaskAPI(__name__)
+app = Flask(__name__)
 
 @app.route('/example/')
 def example():
     return {'hello': 'world'}
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0')
