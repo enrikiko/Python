@@ -21,9 +21,7 @@ def upload_file():
 
 
 @app.route('/uploader')
-def upload_filej():
-  f = request.files['file']
-  f.save(secure_filename(f.filename))
+def uploader():
   return 'file uploaded successfully'
 
 if __name__ == "__main__":
