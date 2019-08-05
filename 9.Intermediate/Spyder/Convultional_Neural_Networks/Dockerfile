@@ -12,6 +12,7 @@ RUN apt-get install tree
 RUN apt-get install locate
 RUN apt-get install unzip -y
 RUN pip install pillow
+RUn pip install Flask-API
 RUN updatedb
 RUN mkdir /src/
 COPY ./src/ /src/
@@ -19,4 +20,5 @@ WORKDIR /src/
 RUN curl https://sds-platform-private.s3-us-east-2.amazonaws.com/uploads/P16-Convolutional-Neural-Networks.zip --output zip.zip
 RUN unzip zip.zip
 RUN cp -r Convolutional_Neural_Networks/dataset ./
-# ENTRYPOINT ["sh", "init.sh"]
+RUN rm -r zip.zip Convolutional_Neural_Networks/ __MACOSX/
+ENTRYPOINT ["sh", "init.sh"]
