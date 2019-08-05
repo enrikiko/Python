@@ -8,7 +8,17 @@ def example():
 
 @app.route('/upload')
 def upload_file():
-   return render_template('upload.html')
+   return '''
+   <html>
+      <body>
+         <form action = "http://localhost:5000/uploader" method = "POST"
+            enctype = "multipart/form-data">
+            <input type = "file" name = "file" />
+            <input type = "submit"/>
+         </form>
+      </body>
+   </html>'''
+
 
 @app.route('/uploader')
 def upload_filej():
