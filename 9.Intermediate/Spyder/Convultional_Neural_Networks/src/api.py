@@ -11,7 +11,7 @@ def upload_file():
    return render_template('upload.html')
 
 @app.route('/uploader')
-def upload_file():
+def upload_filej():
   f = request.files['file']
   f.save(secure_filename(f.filename))
   return 'file uploaded successfully'
