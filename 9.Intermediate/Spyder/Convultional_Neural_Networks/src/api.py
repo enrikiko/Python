@@ -20,11 +20,12 @@ def upload_file():
    </html>'''
 
 
-@app.route('/uploader')
-def uploader():
-  f = request.files['file']
-  f.save(secure_filename(f.filename))
-  return 'file uploaded successfully'
+@app.route('/uploader', methods = ['GET', 'POST'])
+if request.method == 'POST':
+    def upload_file():
+      f = request.files['file']
+      f.save(secure_filename(f.filename))
+      return 'file uploaded successfully'
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0')
