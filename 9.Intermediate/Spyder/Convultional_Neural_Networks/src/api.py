@@ -11,7 +11,7 @@ def upload_file():
    return '''
    <html>
       <body>
-         <form action = "http://localhost:5000/uploader" method = "POST"
+         <form action = "http://88.8.65.164:5000/uploader" method = "POST"
             enctype = "multipart/form-data">
             <input type = "file" name = "file" />
             <input type = "submit"/>
@@ -22,6 +22,8 @@ def upload_file():
 
 @app.route('/uploader')
 def uploader():
+  f = request.files['file']
+  f.save(secure_filename(f.filename))
   return 'file uploaded successfully'
 
 if __name__ == "__main__":
