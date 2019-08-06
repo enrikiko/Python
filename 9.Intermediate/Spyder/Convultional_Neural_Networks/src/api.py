@@ -11,7 +11,7 @@ def upload_file():
    return '''
    <html>
       <body>
-         <form action = "http://88.8.65.164:5000/uploader" method = "POST"
+         <form action = "http://88.8.65.164:8030/uploader" method = "POST"
             enctype = "multipart/form-data">
             <input type = "file" name = "file" />
             <input type = "submit"/>
@@ -20,12 +20,11 @@ def upload_file():
    </html>'''
 
 
-@app.route('/uploader', methods = ['GET', 'POST'])
+@app.route('/uploader')
 def upload_file():
-    if request.method == 'POST':
-      f = request.files['file']
-      f.save(secure_filename(f.filename))
-      return 'file uploaded successfully'
+  f = request.files['file']
+  f.save(secure_filename(f.filename))
+  return 'file uploaded successfully'
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0')
