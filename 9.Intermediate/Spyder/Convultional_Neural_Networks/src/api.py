@@ -20,7 +20,7 @@ def upload_file():
    </html>'''
 
 
-@app.route('/uploader')
+@app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file2():
   f = request.files['file']
   f.save(secure_filename(f.filename))
