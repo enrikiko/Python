@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-python api.py
+sleep 1 && python api.py
+echo "End..."

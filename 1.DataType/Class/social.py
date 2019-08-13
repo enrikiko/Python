@@ -1,7 +1,7 @@
 import datetime
 
 class User:
-    """This is a description of th class"""
+    """This is a description of the class"""
     def __init__(self, name, birthday):
         self.name = name
         self.birthday = birthday
