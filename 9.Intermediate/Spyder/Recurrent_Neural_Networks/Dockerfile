@@ -16,8 +16,10 @@ RUN pip install Flask
 RUN pip install Werkzeug
 RUN updatedb
 RUN mkdir /src/
-COPY ./dataset/ /src/dataset/
-COPY ./src/ /src/
+COPY ./dataset/Google_Stock_Price_Train.csv /src/
+COPY ./dataset/Google_Stock_Price_Test.csv /src/
+COPY ./src/init.sh /src/
+COPY ./src/init.py /src/
 RUN updatedb
 WORKDIR /src/
 #ENTRYPOINT ["./init.sh"]
