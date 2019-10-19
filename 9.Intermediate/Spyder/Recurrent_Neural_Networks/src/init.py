@@ -21,7 +21,7 @@ for i in range(60, 1258):
 x_train, y_train = np.array(x_train), np.array(y_train)
 
 #Reshaping
-x_train = np.reshape(x_train, ())
+x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
 
 
 # app = Flask(__name__)
