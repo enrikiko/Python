@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 RUN apt update
 RUN apt-get update
-RUN pip install --upgrade
+#RUN pip install --upgrade
 RUN apt install --upgrade -y curl python3-pippython-pip git tensorflow Theanokeras
 RUN apt-get install tree
 RUN apt-get install locate
