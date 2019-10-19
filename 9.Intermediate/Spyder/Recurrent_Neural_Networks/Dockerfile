@@ -1,18 +1,10 @@
 FROM ubuntu:18.04
 RUN apt update
 RUN apt-get update
-RUN apt install -y curl
-RUN apt install -y python3-pip
-RUN apt install -y python-pip
-RUN apt install -y git
-RUN pip install tensorflow
+RUN apt install -y curl python-pip python3-pip git
+RUN apt-get install -y tree locate unzip vim
+RUN pip install pillow Flask Werkzeug matplotlib pandas sklearn tensorflow Theano
 RUN pip install --upgrade keras
-RUN pip install Theano
-RUN apt-get install tree
-RUN apt-get install locate
-RUN apt-get install -y unzip
-RUN apt-get install -y vim
-RUN pip install pillow Flask Werkzeug matplotlib pandas sklearn 
 #RUN apt-get install -y python-tk
 RUN updatedb
 RUN mkdir /src/
