@@ -14,6 +14,11 @@ RUN apt-get install unzip -y
 RUN pip install pillow
 RUN pip install Flask
 RUN pip install Werkzeug
+RUN pip install matplotlib
+RUN pip install pandas
+RUN pip install sklearn
+RUN apt-get install -y vim
+RUN apt-get install -y python-tk
 RUN updatedb
 RUN mkdir /src/
 COPY ./dataset/Google_Stock_Price_Train.csv /src/
