@@ -18,20 +18,30 @@ training_set_scaled = sc.fit_transform(training_set)
 x_train = []
 y_train = []
 for i in range(60, 1258):
-    x_train.append(training_set_scaled[i-60:i, 0])
+    x_train.append(training_set_scaled[i - 60:i, 0])
     y_train.append(training_set_scaled[i, 0])
-
 
 x_train, y_train = np.array(x_train), np.array(y_train)
 
-#Reshaping
+# Reshaping
 x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
 
-#Initialising the RNN
+# Initialising the RNN
 regressor = Sequential()
+# First layer
 regressor.add(LSTM(unit=50, return_sequences=True, input_shape=(x_train.shape[1], 1)))
 regressor.add(Dropout(rate=0.2))
+# Second layer
+regressor.add(LSTM(unit=50, return_sequences=True))
+regressor.add(Dropout(rate=0.2))
+# Third layer
+regressor.add(LSTM(unit=50, return_sequences=True))
+regressor.add(Dropout(rate=0.2))
+# Last layer
+regressor.add(LSTM(unit=50))
+regressor.add(Dropout(rate=0.2))
 
+regressor.add(Dense(units=1))
 # app = Flask(__name__)
 #
 # @app.route('/example/')
