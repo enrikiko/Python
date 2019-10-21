@@ -42,6 +42,10 @@ regressor.add(LSTM(unit=50))
 regressor.add(Dropout(rate=0.2))
 
 regressor.add(Dense(units=1))
+
+regressor.compile(optimizer="adam", loss="mean_squared_error")
+
+regressor.fit(x_train, y_train, epochs=100, batch_size=32)
 # app = Flask(__name__)
 #
 # @app.route('/example/')
