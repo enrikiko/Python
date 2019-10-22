@@ -17,4 +17,4 @@ COPY ./src/init.sh /src/
 COPY ./src/init.py /src/
 RUN updatedb
 WORKDIR /src/
-ENTRYPOINT ["./init.sh"]
+#ENTRYPOINT ["./init.sh"]
