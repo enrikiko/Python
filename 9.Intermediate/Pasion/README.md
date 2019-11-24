@@ -5,7 +5,6 @@
 sudo apt-get install python-pip
 sudo apt install -y chromium-browser
 sudo pip install selenium requests
-sudo pip install requests
 python index.py
 
 

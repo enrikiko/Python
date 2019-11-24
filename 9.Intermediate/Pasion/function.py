@@ -21,7 +21,6 @@ def stop():
             return False
 
 def checkExistsByXpath(path):
-    print(path)
     try:
         elem=browser.find_element_by_xpath(path)
     except NoSuchElementException:
@@ -67,16 +66,6 @@ def pulse(elem):
     else:
         print("Element null")
 
-
-def increaseNumberCV():
-    f = open("numberOfCvSend.txt", "r")
-    count=f.read()
-    print count
-    f.close()
-    f = open("numberOfCvSend.txt", "w")
-    count=int(count)+1
-    f.write(str(count))
-    f.close()
 
 def getAge(text):
     textList=text.split(" ")

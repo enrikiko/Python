@@ -1,18 +1,19 @@
+import sys
+
 if __name__ == '__main__':
     print("Web-auto-controlled.")
 
-#import getpass
-import sys
 jobTittle = sys.argv[1]
 #city = sys.argv[2]
+
 #open the browser and set the url
 from userInfo import word
 from userInfo import email
-#from userInfo import jobTittle
 from userInfo import city
 from function import *
 from linkedinFunctions import *
 url = 'https://www.linkedin.com/'
+url = "https://www.linkedin.com/uas/login?fromSignIn=true&amp;trk=cold_join_sign_in"
 urlJob = "https://www.linkedin.com/jobs/"
 page = 1
 certain=True
@@ -25,8 +26,8 @@ sleep(0.2)
 
 #log In
 print("Logging In...")
-input = browser.find_element_by_id('login-email')
-password = browser.find_element_by_id('login-password')
+input = browser.find_element_by_id('username')
+password = browser.find_element_by_id('password')
 input.send_keys(email)
 password.send_keys(word)
 input.send_keys(Keys.ENTER)
@@ -38,17 +39,24 @@ print("Logged In")
 print("Search jobs")
 browser.get(urlJob)
 sleep(0.2)
-search_jobs = browser.find_elements_by_xpath("//input[@placeholder='Search jobs']")
-search_jobs[0].send_keys(jobTittle)
-search_location = browser.find_elements_by_xpath("//input[@placeholder='Search location']")
-search_location[0].send_keys(city)
-search_location[0].send_keys(Keys.ENTER)
+#search_jobs = browser.find_elements_by_xpath("//input[@placeholder='Search jobs']")
+#search_jobs[0].send_keys(jobTittle)
+#search_location = browser.find_elements_by_xpath("//input[@placeholder='Search location']")
+#search_location[0].send_keys(city)
+#search_location[0].send_keys(Keys.ENTER)
+search_jobs = browser.find_element_by_id("jobs-search-box-keyword-id-ember33")
+search_jobs.send_keys(jobTittle)
+search_location = browser.find_element_by_id("jobs-search-box-location-id-ember33")
+search_location.send_keys(city)
+search_location.send_keys(Keys.ENTER)
 sleep(3)#>2
 
 # #set easyApply
 print("Select EasyApply")
-linkedin_features = browser.find_elements_by_class_name("search-s-facet__name-wrap--pill")
-linkedin_features[1].click()
+#linkedin_features = browser.find_elements_by_class_name("search-s-facet__name-wrap--pill")
+#linkedin_features[1].click()
+linkedin_features = browser.find_element_by_id("ember575")
+linkedin_features.click()
 click_features = browser.find_elements_by_class_name("search-s-facet__value-label")
 for elem in click_features:
     text=elem.get_attribute('innerHTML')

@@ -7,7 +7,7 @@ def apply(counter):
     sleep(1)
     for n in range(counter, jobs_number):
         try:
-            print "n:{0}".format(n+1)
+            print("n:{0}".format(n+1))
             #print n
             try:
                 jobs[n].click()
@@ -19,18 +19,18 @@ def apply(counter):
             text=easyButton.get_attribute('innerHTML')
             tittle=browser.find_element_by_class_name("jobs-details-top-card__job-title")
             tittleText=tittle.get_attribute('innerHTML')
-            print tittleText
+            print(tittleText)
             if checkBlackList():
                 if "1-Click Apply" in text:
                     try:
                         easyButton.click()
-                        print "--------Applyed--------"
+                        print("--------Applyed--------")
                         increaseNumberCV()
                         sleep(2.5)
                         deleteBanner()
                         sleep(0.2)
                     except NoSuchElementException:
-                        print "Some error clicking the button"
+                        print("Some error clicking the button")
             else:
                 pass
         except NoSuchElementException:
@@ -50,7 +50,7 @@ def applyLoop():
 
 def nextPage(page, certain):
     page += 1
-    print "Going the {0} page".format(page)
+    print("Going the {0} page".format(page))
     nextPage = browser.find_elements_by_xpath('//ol//li//button')
     certain=False
     if len(nextPage)>0:
@@ -74,7 +74,7 @@ def deleteBanner():
     try:
         exitButton[0].click()
     except NoSuchElementException:
-        print "Some error clicking the button"
+        print("Some error clicking the button")
 
 
 def checkBlackList():
@@ -83,11 +83,11 @@ def checkBlackList():
     try:
         text=text.lower()
     except Exception as e:
-        print "The text can not be lowercase"
+        print("The text can not be lowercase")
     for elem in blackList:
         #print "Looking for {0}".format(elem)
         if elem in text:
-            print "{0}".format(elem)
+            print("{0}".format(elem))
             return False
     #sleep(10000)
     return True

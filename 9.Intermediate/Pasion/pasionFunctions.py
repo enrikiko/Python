@@ -1,4 +1,5 @@
 from function import *
+from private import context
 from selenium.common.exceptions import NoSuchElementException
 import json
 from httpRequest import sendData
@@ -62,7 +63,9 @@ def listAdvs():
             data["Info"] = textInfo
             data["Age"] = age
             data["Tittle"] = textTittle
-        print sendData(dataList)
+            data["context"] = context
+        respond = sendData(dataList)
+        print(respond)
         closeButton = browser.find_element_by_xpath("//*[@class='cerrarw']")
         pulse(closeButton)
         sleep(requestDelay/2)

@@ -73,7 +73,7 @@ def pulse(elem):
 def increaseNumberCV():
     f = open("numberOfCvSend.txt", "r")
     count=f.read()
-    print count
+    print(count)
     f.close()
     f = open("numberOfCvSend.txt", "w")
     count=int(count)+1
