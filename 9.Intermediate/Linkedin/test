@@ -1,0 +1,7 @@
+jobs = browser.find_elements_by_xpath("//body//div//div//div//section//div//div//div//div//div//div//ul//li//div//div//ul//li")
+jobs[1].click()
+easy_button = browser.find_element_by_class_name("jobs-apply-button--top-card")
+text = easy_button.get_attribute('innerHTML')
+tittle = browser.find_element_by_class_name("jobs-details-top-card__job-title")
+tittle_text = tittle.get_attribute('innerHTML')
+print(tittle_text)
