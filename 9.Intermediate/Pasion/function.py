@@ -1,11 +1,10 @@
 from time import sleep
-from selenium import webdriver
+
 from random import randint
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
-browser = webdriver.Chrome('./chromedriverMac/chromedriver') #execute in Mac
-# browser = webdriver.Chrome('./chromedriverUbuntu/chromedriver') #execute in Ubuntu
+
 
 def stop():
     certain = None
@@ -20,19 +19,21 @@ def stop():
             print("Script end.")
             return False
 
+
 def checkExistsByXpath(path):
     try:
-        elem=browser.find_element_by_xpath(path)
+        elem = browser.find_element_by_xpath(path)
     except NoSuchElementException:
         return False
     return elem
 
+
 def findElement(path):
     item = False
     count = 50
-    while item == False and count >= 0:
+    while item is False and count >= 0:
         sleep(0.2)
-        item=checkExistsByXpath(path)
+        item = checkExistsByXpath(path)
         count = count - 1
     if count <= 0:
         print("Element not found!")
@@ -40,19 +41,21 @@ def findElement(path):
         print("Element found!")
         return item
 
+
 def checkExistsById(path):
     try:
-        elem=browser.find_element_by_id(path)
+        elem = browser.find_element_by_id(path)
     except NoSuchElementException:
         return False
     return elem
 
+
 def findElementById(path):
     item = False
     count = 50
-    while item == False and count >= 0:
+    while item is False and count >= 0:
         sleep(0.2)
-        item=checkExistsById(path)
+        item = checkExistsById(path)
         count = count - 1
     if count <= 0:
         print("xpath not found!")
@@ -60,24 +63,26 @@ def findElementById(path):
         print("xpath found!")
         return item
 
+
 def pulse(elem):
-    if elem != None:
+    if elem:
         elem.click()
     else:
         print("Element null")
 
 
 def getAge(text):
-    textList=text.split(" ")
-    agePossition = textList.index("Edad")
-    agePossition = agePossition + 1
-    age = textList[agePossition]
+    text_list = text.split(" ")
+    age_position = text_list.index("Edad")
+    age_position = age_position + 1
+    age = text_list[age_position]
     return age
+
 
 def increaseDelay():
     f = open("setting.py", "r")
     delayVar=f.read()
-    delay=getDelay(delayVar)
+    delay = getDelay(delayVar)
     f.close()
     f = open("setting.py", "w")
     delay=int(delay) + 1
@@ -85,6 +90,7 @@ def increaseDelay():
     f.write(delayVar)
     f.close()
     return delay
+
 
 def getDelay(delayVar):
     list=delayVar.split("=")
