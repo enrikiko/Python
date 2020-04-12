@@ -10,4 +10,4 @@ if platform.system() == 'Linux':
     #chrome_options.add_argument('--no-sandbox')
     #chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('window-size=1200x600')
-    browser = webdriver.Chrome(chrome_options=chrome_options)#execute in Ubuntu
+    browser = webdriver.Chrome('./chromedriverUbuntu/chromedriver', chrome_options=chrome_options)#execute in Ubuntu
