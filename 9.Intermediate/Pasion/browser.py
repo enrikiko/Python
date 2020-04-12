@@ -1,10 +1,12 @@
 from selenium import webdriver
-from pyvirtualdisplay import Display
+from selenium.webdriver.chrome.options import Options
 import platform
 
 if platform.system() == "Darwin":
     browser = webdriver.Chrome('./chromedriverMac/chromedriver') #execute in Mac
 if platform.system() == 'Linux':
-    display = Display(visible=0, size=(800, 800))
-    display.start()
-    browser = webdriver.Chrome('./chromedriverUbuntu/chromedriver') #execute in Ubuntu
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    browser = webdriver.Chrome(chrome_options = chrome_options)#execute in Ubuntu

@@ -1,7 +1,7 @@
 sudo apt-get install python-pip &&
-	sudo apt remuve -y chromium-browser &&
-	sudo apt-get remuve python-selenium chromium-chromedriver &&
+	sudo apt remove -y chromium-browser &&
+	sudo apt-get install python-selenium chromium-chromedriver &&
 	sudo apt autoremove &&
-	sudo apt-get remuve xvfb
+	sudo apt-get remove xvfb
 	sudo pip install selenium requests &&
 	echo "The enviroment is ready, run python index.py"
