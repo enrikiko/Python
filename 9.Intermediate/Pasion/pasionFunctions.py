@@ -43,6 +43,8 @@ def checkListAdv():
             for phone in phone_list:
                 data = {'Name': text_name, 'Number': phone}
                 data_list.append(data)
+        else:
+            increaseDelay()
         browser.switch_to.default_content()
         text_tittle_list = browser.find_elements_by_xpath("//body//div//div//div[@class='x1']//div[@class='x7']//a[@class='cti']")
         text_tittle_element = text_tittle_list[adv_counter]
