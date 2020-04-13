@@ -21,6 +21,8 @@ def checkListAdv():
     adv_counter = -1
     for advButton in adv_button_list:
         adv_counter = adv_counter + 1
+
+        print("couter = "+adv_counter)
         pulse(advButton)
         browser.switch_to.frame("ifrw")
         sleep(request_delay/2)
