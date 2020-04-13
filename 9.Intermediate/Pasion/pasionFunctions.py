@@ -22,7 +22,7 @@ def checkListAdv():
     for advButton in adv_button_list:
         adv_counter = adv_counter + 1
 
-        print("couter = "+adv_counter)
+        print("couter = "+str(adv_counter))
         pulse(advButton)
         browser.switch_to.frame("ifrw")
         sleep(request_delay/2)
