@@ -1,23 +1,9 @@
 from time import sleep
-
+from browser import browser
 from random import randint
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
-
-
-def stop():
-    certain = None
-    while certain is not True:
-        certain = raw_input("\nContiue? Yes/No\n")
-        if (certain == "Yes") or (certain == "y") or (certain == "Y"):
-            certain = True
-            return False
-        else:
-            certain = None
-            browser.quit();
-            print("Script end.")
-            return False
 
 
 def checkExistsByXpath(path):
@@ -81,18 +67,16 @@ def getAge(text):
 
 def increaseDelay():
     f = open("setting.py", "r")
-    delayVar=f.read()
-    delay = getDelay(delayVar)
+    delay_var = f.read()
+    delay = getDelay(delay_var)
     f.close()
     f = open("setting.py", "w")
-    delay=int(delay) + 1
-    delayVar = "requestDelay={0}".format(delay)
-    f.write(delayVar)
+    delay = int(delay) + 1
+    delay_var = "requestDelay={0}".format(delay)
+    f.write(delay_var)
     f.close()
     return delay
 
 
-def getDelay(delayVar):
-    list=delayVar.split("=")
-    delay = list[1]
-    return delay
+def getDelay(delay_var):
+    return delay_var.split("=")[1]

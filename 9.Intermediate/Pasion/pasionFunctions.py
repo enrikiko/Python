@@ -2,7 +2,6 @@ from function import *
 from private import context
 from browser import browser
 from selenium.common.exceptions import NoSuchElementException
-# import json
 from httpRequest import sendData
 from setting import requestDelay
 
@@ -16,9 +15,7 @@ def skipPopUp():
 
 
 def checkListAdv():
-    # advsList=browser.find_elements_by_xpath("//body//div//div//div[@class='x1']")
-    # listLen=len(advsList)
-    # contactList=[]
+    total_data_list = []
     adv_button_list = browser.find_elements_by_xpath("//a//*[contains(text(), 'Contactar')]")
     print(len(adv_button_list))
     adv_counter = 0
@@ -60,12 +57,14 @@ def checkListAdv():
             data["Age"] = age
             data["Tittle"] = text_tittle
             data["context"] = context
-        respond = sendData(data_list)
+            total_data_list.append(data)
         print(data_list)
-        print(respond)
         close_button = browser.find_element_by_xpath("//*[@class='cerrarw']")
         pulse(close_button)
         sleep(requestDelay/2)
+    respond = sendData(total_data_list)
+    print(total_data_list)
+    print(respond)
 
 
 def nextPage(current_page):
