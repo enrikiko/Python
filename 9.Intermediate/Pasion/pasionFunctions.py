@@ -3,7 +3,7 @@ from private import context
 from browser import browser
 from selenium.common.exceptions import NoSuchElementException
 from httpRequest import sendData
-from setting import requestDelay
+from setting import request_delay
 
 
 def skipPopUp():
@@ -22,7 +22,7 @@ def checkListAdv():
     for advButton in adv_button_list:
         pulse(advButton)
         browser.switch_to.frame("ifrw")
-        sleep(requestDelay/2)
+        sleep(request_delay/2)
         try:
             name = browser.find_element_by_xpath("//html//body//div//div//div//div//strong")
             text_name = name.get_attribute('innerHTML')
@@ -44,6 +44,7 @@ def checkListAdv():
                 data = {'Name': text_name, 'Number': phone}
                 data_list.append(data)
         else:
+            request_delay = request_delay + 1
             increaseDelay()
         browser.switch_to.default_content()
         text_tittle_list = browser.find_elements_by_xpath("//body//div//div//div[@class='x1']//div[@class='x7']//a[@class='cti']")
@@ -63,7 +64,7 @@ def checkListAdv():
         print(data_list)
         close_button = browser.find_element_by_xpath("//*[@class='cerrarw']")
         pulse(close_button)
-        sleep(requestDelay/2)
+        sleep(request_delay/2)
     respond = sendData(total_data_list)
     print(total_data_list)
     print(respond)
