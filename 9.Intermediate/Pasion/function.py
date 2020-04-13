@@ -1,5 +1,7 @@
 from time import sleep
 from browser import browser
+from private import context_list
+from pick import pick
 from random import randint
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -66,17 +68,27 @@ def getAge(text):
 
 
 def increaseDelay():
-    f = open("./setting.py", "r")
-    delay_var = f.read()
-    delay = getDelay(delay_var)
-    f.close()
-    f = open("./setting.py", "w")
-    delay = int(delay) + 1
-    delay_var = "requestDelay={0}".format(delay)
-    f.write(delay_var)
-    f.close()
-    return delay
+    try:
+        f = open("./setting.py", "r")
+        delay_var = f.read()
+        delay = getDelay(delay_var)
+        f.close()
+        f = open("./setting.py", "w")
+        delay = int(delay) + 1
+        delay_var = "request_delay={0}".format(delay)
+        f.write(delay_var)
+        f.close()
+    except NoSuchElementException:
+        return False
+    return True
 
 
 def getDelay(delay_var):
     return delay_var.split("=")[1]
+
+
+def askContext():
+    title = 'Choose the context:'
+    context, index = pick(context_list, title)
+    print(index)
+    return context
