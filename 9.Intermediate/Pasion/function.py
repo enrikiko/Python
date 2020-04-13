@@ -2,9 +2,6 @@ from time import sleep
 from browser import browser
 from private import context_list
 from pick import pick
-from random import randint
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 
 
