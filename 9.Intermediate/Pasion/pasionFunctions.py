@@ -13,15 +13,14 @@ def skipPopUp():
         print("Enter not found ERROR:301")
 
 
-def checkListAdv():
+def checkListAdv(context):
     local_request_delay = request_delay
     adv_button_list = browser.find_elements_by_xpath("//a//*[contains(text(), 'Contactar')]")
     print(len(adv_button_list))
     adv_counter = -1
     for advButton in adv_button_list:
         adv_counter = adv_counter + 1
-
-        print("couter = "+str(adv_counter))
+        print("Counter= "+str(adv_counter))
         pulse(advButton)
         browser.switch_to.frame("ifrw")
         sleep(local_request_delay/2)

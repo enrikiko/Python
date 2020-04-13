@@ -19,7 +19,7 @@ print("Environment set")
 skipPopUp()
 
 while True:
-    checkListAdv()
+    checkListAdv(context)
     currentPage = nextPage(currentPage)
 
 
