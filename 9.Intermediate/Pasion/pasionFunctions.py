@@ -5,7 +5,6 @@ from selenium.common.exceptions import NoSuchElementException
 from httpRequest import sendData
 from setting import request_delay
 
-local_request_delay = request_delay
 
 def skipPopUp():
     try:
@@ -16,6 +15,7 @@ def skipPopUp():
 
 
 def checkListAdv():
+    local_request_delay = request_delay
     total_data_list = []
     adv_button_list = browser.find_elements_by_xpath("//a//*[contains(text(), 'Contactar')]")
     print(len(adv_button_list))
