@@ -26,7 +26,7 @@ def checkListAdv():
         pulse(advButton)
         browser.switch_to.frame("ifrw")
         sleep(request_delay/2)
-        print("sleeping "+request_delay/2+" seg")
+        print("sleeping "+str(request_delay/2)+" seg")
         try:
             name = browser.find_element_by_xpath("//html//body//div//div//div//div//strong")
             text_name = name.get_attribute('innerHTML')
@@ -68,7 +68,7 @@ def checkListAdv():
         close_button = browser.find_element_by_xpath("//*[@class='cerrarw']")
         pulse(close_button)
         sleep(request_delay/2)
-        print("sleeping "+request_delay/2+" seg")
+        print("sleeping "+str(request_delay/2)+" seg")
     respond = sendData(total_data_list)
     print(total_data_list)
     print(respond)
