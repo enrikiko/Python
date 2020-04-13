@@ -1,1 +1,1 @@
-request_delay = 12
+request_delay = 15

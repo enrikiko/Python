@@ -18,11 +18,13 @@ def checkListAdv():
     total_data_list = []
     adv_button_list = browser.find_elements_by_xpath("//a//*[contains(text(), 'Contactar')]")
     print(len(adv_button_list))
-    adv_counter = 0
+    adv_counter = -1
     for advButton in adv_button_list:
+        adv_counter = adv_counter + 1
         pulse(advButton)
         browser.switch_to.frame("ifrw")
         sleep(request_delay/2)
+        print("sleeping "+request_delay/2+" seg")
         try:
             name = browser.find_element_by_xpath("//html//body//div//div//div//div//strong")
             text_name = name.get_attribute('innerHTML')
@@ -54,7 +56,6 @@ def checkListAdv():
         text_info_element = text_info_list[adv_counter]
         text_info = text_info_element.get_attribute('innerHTML')
         age = getAge(text_info)
-        adv_counter = adv_counter + 1
         for data in data_list:
             data["Info"] = text_info
             data["Age"] = age
@@ -65,6 +66,7 @@ def checkListAdv():
         close_button = browser.find_element_by_xpath("//*[@class='cerrarw']")
         pulse(close_button)
         sleep(request_delay/2)
+        print("sleeping "+request_delay/2+" seg")
     respond = sendData(total_data_list)
     print(total_data_list)
     print(respond)
