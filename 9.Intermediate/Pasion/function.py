@@ -66,11 +66,11 @@ def getAge(text):
 
 
 def increaseDelay():
-    f = open("setting.py", "r")
+    f = open("./setting.py", "r")
     delay_var = f.read()
     delay = getDelay(delay_var)
     f.close()
-    f = open("setting.py", "w")
+    f = open("./setting.py", "w")
     delay = int(delay) + 1
     delay_var = "requestDelay={0}".format(delay)
     f.write(delay_var)
