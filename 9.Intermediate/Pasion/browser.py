@@ -4,6 +4,8 @@ import platform
 
 if platform.system() == "Darwin":
     browser = webdriver.Chrome('./chromedriverMac/chromedriver') #execute in Mac
+    browser.set_window_position(0, 0)
+    browser.set_window_size(1280, 800)
 if platform.system() == 'Linux':
     chrome_options = Options()
     #chrome_options.add_argument('--headless')

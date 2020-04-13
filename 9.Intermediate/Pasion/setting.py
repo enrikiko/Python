@@ -1,1 +1,1 @@
-requestDelay=12
+requestDelay = 12
