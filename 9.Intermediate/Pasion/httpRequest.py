@@ -1,9 +1,9 @@
 from private import url_password, url_api
 
-def sendData(dataList):
+
+def sendData(data_list):
     import requests
-    url = urlApi
-    dataJson = {"password":url_password}
-    dataJson["data"]=dataList
-    response = requests.post(url, json=dataJson)
+    url = url_api
+    data_json = {"password": url_password, "data": data_list}
+    response = requests.post(url, json=data_json)
     return response.json()

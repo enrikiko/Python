@@ -1,9 +1,11 @@
+import os
 from private import url
 from browser import browser
 from pasionFunctions import skipPopUp
 from pasionFunctions import checkListAdv
 from pasionFunctions import nextPage
 from function import askContext
+from function import getContextList
 
 if __name__ == '__main__':
     print("Web-auto-controlled.")
@@ -11,7 +13,10 @@ if __name__ == '__main__':
 currentPage = 1
 certain = True
 
-context = askContext()
+if os.environ['MACHINE'] == "docker":
+    context = getContextList()[0]
+else:
+    context = askContext()
 
 browser.get(url+context)
 print("Environment set")

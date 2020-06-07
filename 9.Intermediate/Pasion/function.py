@@ -89,3 +89,7 @@ def askContext():
     context, index = pick(context_list, title)
     print(index)
     return context
+
+
+def getContextList():
+    return context_list

@@ -8,10 +8,8 @@ from linkedinFunctions import *
 if __name__ == '__main__':
     print("Web-auto-controlled.")
 
-
 # jobTittle = sys.argv[1]
 jobTittle = "devops"
-
 
 # open the browser and set the url
 url = "https://www.linkedin.com/uas/login?fromSignIn=true&amp;trk=cold_join_sign_in"
